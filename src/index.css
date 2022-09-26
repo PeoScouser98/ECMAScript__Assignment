@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--primary-color: #f54748;
+		--primary-color-active: #b83131;
+	}
+}
+@layer utilities {
+}
+@layer components {
+	.invisible-scroll::-webkit-scrollbar {
+		display: none;
+	}
+	.text.primary {
+		@apply text-[color:var(--primary-color)];
+	}
+	.btn-primary {
+		@apply bg-[color:var(--primary-color)] hover:bg-[color:var(--primary-color-active)]  hover:border-[color:var(--primary-color)] border-[color:var(--primary-color)] normal-case;
+	}
+	.btn-outline-primary {
+		@apply bg-transparent border-[color:var(--primary-color)] text-[color:var(--primary-color)] hover:bg-neutral hover:text-[#fff] normal-case;
+	}
+	.nav-menu li {
+		@apply hover:bg-transparent hover:cursor-pointer hover:text-[color:var(--primary-color)];
+	}
+}
