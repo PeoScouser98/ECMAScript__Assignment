@@ -2,10 +2,6 @@
 module.exports = {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
-		colors: {
-			primary: "rgba(245, 71, 72, 1)",
-			active: "rgba(247, 71, 72, 1)",
-		},
 		screens: {
 			sm: {
 				min: "375px",

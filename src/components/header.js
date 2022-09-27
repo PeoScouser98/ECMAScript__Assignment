@@ -4,7 +4,7 @@ import { logout } from "../api/auth";
 const Header = {
 	render() {
 		const userData = JSON.parse(localStorage.getItem("auth"));
-		console.log(userData);
+		const numOfItemsInCart = JSON.parse(localStorage.getItem("cart")).length;
 		return /* html */ `
       <div class="w-full navbar justify-between bg-white">
         <div class="flex-none xl:hidden">
@@ -13,21 +13,29 @@ const Header = {
           </label>
         </div> 
         
-        <div class=" px-2 mx-2"><img src="../../assets/img/Fudo..png"/></div>
+        <div class=" px-2 mx-2">
+				<a href="/#/" ><img src="../../assets/img/Fudo..png" class="hover:cursor-pointer"/></a>
+		  </div>
   
-        <div class="hidden lg:block">
+        <div class="hidden xl:block">
           <ul class="nav-menu flex justify-center items-center gap-10 font-medium">
             <!-- Navbar menu content here -->
-            <li><a>Home</a></li>
-            <li><a>Product</a></li> 
-            <li><a>About Us</a></li>
-            <li><a>Contact Us</a></li>
+            <li><a href="/#/">Home</a></li>
+            <li><a href="/#/products">Product</a></li> 
+            <li><a href="/#/about">About Us</a></li>
+            <li><a href="/#/contact">Contact Us</a></li>
           </ul>
         </div>
         <div class="flex items-center gap-5">
             ${
 				userData != null
 					? /* html */ `
+					<div class="indicator">
+						<div class="indicator-item w-5 h-5 rounded-full bg-[color:var(--primary-color)] inline-flex items-center justify-center text-[#fff]">
+							<span id="cart-counter">${numOfItemsInCart}</span>
+						</div>
+						<i class="bi bi-cart3 text-2xl"></i>
+					</div>
           <div class="dropdown dropdown-end">
 					<label tabindex="0" class="inline-flex items-center gap-3 pr-5">
 						<img src="${userData?.avatar}" class="rounded-full max-w-[50px] object-cover object-center"/>

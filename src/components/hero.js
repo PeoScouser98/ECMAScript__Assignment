@@ -1,7 +1,7 @@
 const HeroBanner = {
 	render() {
 		return /* html */ `
-            <div class="flex justify-between items-stretch gap-10 flex-grow">
+            <div class="flex justify-between items-stretch sm:flex-col-reverse md:flex-cols-reverse gap-10 flex-grow">
             <!-- col-left -->
                 <div class="flex flex-col gap-10 basis-1/2">
                     <span class="bg-[#F54748]/20 text-[color:var(--primary-color)] rounded-lg px-5 py-3 w-fit">Quality Food</span>
