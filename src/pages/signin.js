@@ -28,7 +28,7 @@ const SiginPage = {
 					<a href="" role="button" class="btn bg-neutral gap-2"><img src="../../assets/img/iconfinder_Google_1298745 1.svg" alt=""> Or sign-in with google</a>
 					<div class="flex flex-col gap-3 my-5">
 						<a href="/#/forgot-password" class="font-medium text-center text-[#37A9CD] hover:link">Forgot password?</a>
-						<p class="font-medium text-center">Don't have account ? <a href="" class="text-[#37A9CD] hover:link">Join free today</a></p>	
+						<p class="font-medium text-center">Don't have account ? <a href="/#/signup" class="text-[#37A9CD] hover:link">Join free today</a></p>	
 					</div>
 				</form>
 			</div>
@@ -50,6 +50,7 @@ const SiginPage = {
 					email: email.value,
 					password: password.value,
 				});
+				console.log(userData);
 				if (!userData) {
 					toast("error", "Failed to signup!");
 					return;
@@ -58,7 +59,9 @@ const SiginPage = {
 				toast("success", "Signed up successfully!");
 				localStorage.setItem("auth", JSON.stringify(user));
 				localStorage.setItem("accessToken", accessToken);
-				window.location.href = "/#/";
+
+				if (user.role == 1) window.location.href = "/#/admin/product";
+				else window.location.href = "/#/";
 			});
 	},
 };

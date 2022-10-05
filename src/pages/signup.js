@@ -71,12 +71,13 @@ const SignupPage = {
 						}
 					}
 					const user = await signup(data);
+					console.log(user);
 					if (!user) {
 						toast("error", "Failed to signup!");
 						return;
 					}
 					toast("success", "Signed up successfully!");
-					console.log(user);
+					location.href = "/#/signin";
 				} catch (error) {
 					console.log(error.message);
 				}
