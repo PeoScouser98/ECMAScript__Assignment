@@ -5,10 +5,10 @@ const Header = {
 	render() {
 		const userData = JSON.parse(localStorage.getItem("auth"));
 		const numOfItemsInCart = JSON.parse(localStorage.getItem("cart")).length;
-		return /* html */ `
+		return /* template */ `
       <div class="w-full navbar justify-between bg-white">
         <div class="flex-none xl:hidden">
-          <label for="my-drawer-3" class="btn btn-square btn-ghost">
+          <label for="my-drawer-3" class="btn btn-ghost hover:bg-transparent">
             <i class="bi bi-list"></i>        
           </label>
         </div> 
@@ -27,15 +27,15 @@ const Header = {
           </ul>
         </div>
         <div class="flex items-center gap-5">
-            ${
-				userData != null
-					? /* html */ `
-					<div class="indicator">
-						<div class="indicator-item w-5 h-5 rounded-full bg-[color:var(--primary-color)] inline-flex items-center justify-center text-[#fff]">
-							<span id="cart-counter">${numOfItemsInCart}</span>
-						</div>
-						<i class="bi bi-cart3 text-2xl"></i>
+				<div class="indicator">
+					<div class="indicator-item w-5 h-5 rounded-full bg-[color:var(--primary-color)] inline-flex items-center justify-center text-[#fff]">
+						<span id="cart-counter">${numOfItemsInCart}</span>
 					</div>
+					<a href="/#/cart" class="text-2xl"><i class="bi bi-cart3"></i></a>
+				</div>
+            ${
+				userData
+					? /* html */ `
           <div class="dropdown dropdown-end">
 					<label tabindex="0" class="inline-flex items-center gap-3 pr-5">
 						<img src="${userData?.avatar}" class="rounded-full max-w-[50px] object-cover object-center"/>
@@ -47,10 +47,9 @@ const Header = {
 						<li id="logout__btn"><a><i class="bi bi-arrow-bar-left"></i> Logout</a></li>
 					</ul>
 				</div>
-           
          `
 					: /* html */ `
-            <a href="/#/" role="button" class="btn btn-ghost text-2xl"><i class="bi bi-cart3"></i></a>
+			
             <a href="/#/signin" role="button"  class="btn btn-outline-primary">Sign in</a>
             <a href="/#/signup" role="button" class="btn btn-primary">Sign up</a>`
 			}
