@@ -2,12 +2,18 @@ import instance from "../api/axios.config";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Sidebar from "../components/sidebar";
-import ProductCard from "../components/product-card";
+import ProductCard from "../components/product-card_v1";
 
 const ProductPage = {
-	async render() {
+	async render(cate) {
 		const categories = await instance.get("/categories");
-		const products = await instance.get("/products");
+		console.log("::::::", cate);
+		const list = !cate
+			? await instance.get("/products")
+			: await instance.get(`/categories/${cate}?_embed=products`);
+
+		const products = !list.products ? list : list.products;
+
 		return /* html */ `
          <div class="max-w-6xl mx-auto  drawer">
             <input id="my-drawer-3" type="checkbox" class="drawer-toggle" /> 
@@ -23,7 +29,7 @@ const ProductPage = {
                   <aside class="sticky top-0 left-0 basis-1/4 px-3 border-r">
                      <ul class="menu">
                      ${categories
-							.map((item) => /* html */ `<li><a href="/#/categories/${item.id}">${item.name}</a></li>`)
+							.map((item) => /* html */ `<li><a href="/#/products?cate=${item.id}">${item.name}</a></li>`)
 							.join("")}
                      </ul>
                   </aside>
