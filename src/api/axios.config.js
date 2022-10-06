@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-	baseURL: "http://localhost:3001/",
+	baseURL: "http://my-json-server.typicode.com/PeoScouser98/ecmascript/",
 });
 instance.interceptors.request.use(
 	(config) => {
