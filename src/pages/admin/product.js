@@ -25,23 +25,23 @@ const AddProductPage = {
                      <tr>
                         <th>#</th>
                         <th>Food</th>
-                        <th>Quantity</th>
                         <th>Category</th>
                         <th>Out of stock</th>
                         <th>Action</th>
                      </tr>
                   </thead>
                   <tbody id="product-list">
-                     ${products.map((item,index) => /* html */ `
+                     ${products.map(
+							(item, index) => /* html */ `
                         <tr>
-                           <td>${index+1}</td>
+                           <td>${index + 1}</td>
                            <td>${item.name}</td>
-                           <td>${item.}</td>
-                           <td></td>
+                           <td>${item.category}</td>
                            <td></td>
                            <td></td>
                         </tr>
-                     `)}
+                     `,
+						)}
                      
                   </tbody>
                </table>

@@ -122,6 +122,14 @@
       "avatar": "../../assets/img/default-avatar.png",
       "role": 1,
       "id": 3
+    },
+    {
+      "email": "haitnph19234@fpt.edu.vn",
+      "password": "$2a$10$r0VAJ/Hc708.0Pg.ThMgv.KgBsOUoX/KPsn5n/f4AzbgMI4IHp0HW",
+      "username": "Hải dớ",
+      "avatar": "../../assets/img/",
+      "role": 0,
+      "id": 4
     }
   ]
 }
