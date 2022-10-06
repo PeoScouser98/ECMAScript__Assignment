@@ -55,7 +55,6 @@ const validation = {
 	isEmail(formCtrl) {
 		let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		formCtrl.oninput = () => {
-			console.log(formCtrl);
 			regexEmail.test(formCtrl.value)
 				? this.showMessage(formCtrl, null, "success")
 				: this.showMessage(formCtrl, "Email is invalid", "error");
