@@ -20,10 +20,10 @@ const Header = {
         <div class="hidden xl:block">
           <ul class="nav-menu flex justify-center items-center gap-10 font-medium">
             <!-- Navbar menu content here -->
-            <li><a href="/#/">Home</a></li>
-            <li><a href="/#/products">Products</a></li> 
-            <li><a href="/#/about">Categories</a></li>
-            <li><a href="/#/contact">Users</a></li>
+             <li><a href="/#/admin/home">Home</a></li>
+        <li><a href="/#/admin/product">Products</a></li> 
+        <li><a href="/#/admin/category">Categories</a></li>
+        <li><a href="/#/admin/order">Orders</a></a></li>
           </ul>
         </div>
         <div class="flex items-center gap-5">
