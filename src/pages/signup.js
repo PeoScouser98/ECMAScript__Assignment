@@ -29,6 +29,16 @@ const SignupPage = {
 						<small class="error-message text-error font-medium"></small>
 					</div>
 					<div class="form-control gap-2">
+						<label for="">Address</label>
+						<input type="text" id="address" class="input border-[#37A9CD]" data-name="Address" placeholder="Address">
+						<small class="error-message text-error font-medium"></small>
+					</div> 
+					<div class="form-control gap-2">
+						<label for="">Phone</label>
+						<input type="text" id="phone" class="input border-[#37A9CD]" data-name="Phone number" placeholder="x xxx xxx xxx">
+						<small class="error-message text-error font-medium"></small>
+					</div>
+					<div class="form-control gap-2">
 						<label for="">Re-Password</label>
 						<input type="password" id="cfm-password" class="input border-[#37A9CD]" data-name="Confirm password" placeholder="********">
 						<small class="error-message text-error font-medium"></small>
@@ -48,16 +58,21 @@ const SignupPage = {
 				const username = $("#username");
 				const password = $("#password");
 				const confirmPassword = $("#cfm-password");
+				const address = $("#address");
+				const phone = $("#phone");
+
 				if (!validation.areRequired(email, username, password, confirmPassword)) return;
 				if (!validation.isEmail(email)) return;
-				if (!validation.isValidPassword(password)) return;
+				// if (!validation.isValidPassword(password)) return;
 				if (!validation.ckMatchingValue(password, confirmPassword)) return;
 
 				const data = {
 					email: email.value,
 					username: username.value,
 					password: password.value,
-					avatar: "../../assets/img/",
+					address: address.value,
+					phone: phone.value,
+					avatar: "../../assets/img/default-avatar.png",
 					role: 0,
 				};
 				try {
