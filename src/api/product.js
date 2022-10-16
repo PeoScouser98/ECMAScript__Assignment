@@ -1,5 +1,13 @@
 import instance from "./axios.config";
 
+export const getAll = async () => {
+	try {
+		return await instance.get("/products?_expand=category")
+	} catch (error) {
+		return Promise.reject(error)
+	}
+}
+
 export const create = async (product) => {
 	try {
 		return await instance.post("/products", product);
@@ -8,7 +16,7 @@ export const create = async (product) => {
 	}
 };
 
-export const update = async (product, id) => {
+export const update = async (id, product) => {
 	try {
 		return await instance.patch(`/products/${id}`, product);
 	} catch (error) {
