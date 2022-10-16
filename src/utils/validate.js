@@ -5,36 +5,37 @@ const validation = {
 	getFieldName(formCtrl) {
 		return formCtrl.dataset.name;
 	},
-	showMessage(formCtrl, message, style) {
+	showMessage(formCtrl, message, status) {
 		const alert = {
-			error: "input-error",
-			success: "input-success",
-			warning: "input-warning",
+			error: ["input-error", "select-error", "textarea-error"],
+			success: ["input-success", "select-success", "textarea-success"],
+			warning: ["input-warning", "select-success", "textarea-warning"],
 		};
 		const successMessage = formCtrl.parentElement.querySelector(".error-message");
 		successMessage.innerHTML = message;
-		formCtrl.classList.add(alert[style]);
-		for (const style in alert) {
-			formCtrl.classList.remove(style);
+
+		for (const stt in alert) {
+			formCtrl.classList.remove(...alert[stt]);
 		}
+		formCtrl.classList.add(...alert[status]);
 	},
 	areRequired(...formControls) {
 		let isntError = true;
 		formControls.forEach((formCtrl) => {
-			if (formCtrl.value.trim() != "") this.showMessage(formCtrl, null, "success");
+			if (formCtrl.value.trim() != "") this.showMessage(formCtrl, "", "success");
 			else {
 				isntError = false;
 				this.showMessage(formCtrl, `${this.getFieldName(formCtrl)} is required`, "error");
 			}
 			formCtrl.oninput = () => {
-				if (formCtrl.value.trim() != "") this.showMessage(formCtrl, null, "success");
+				if (formCtrl.value.trim() != "") this.showMessage(formCtrl, "", "success");
 				else {
 					isntError = false;
 					this.showMessage(formCtrl, `${this.getFieldName(formCtrl)} is required`, "error");
 				}
 			};
 			formCtrl.onblur = () => {
-				if (formCtrl.value.trim() != "") this.showMessage(formCtrl, null, "success");
+				if (formCtrl.value.trim() != "") this.showMessage(formCtrl, "", "success");
 				else {
 					isntError = false;
 					this.showMessage(formCtrl, `${this.getFieldName(formCtrl)} is required`, "error");
@@ -42,7 +43,7 @@ const validation = {
 			};
 			formCtrl.onchange = () => {
 				if (formCtrl.value.trim() != "") {
-					this.showMessage(formCtrl, null, "success");
+					this.showMessage(formCtrl, "", "success");
 				} else {
 					isntError = false;
 					this.showMessage(formCtrl, `${this.getFieldName(formCtrl)} is required`, "error");
@@ -56,7 +57,7 @@ const validation = {
 		let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		formCtrl.oninput = () => {
 			regexEmail.test(formCtrl.value)
-				? this.showMessage(formCtrl, null, "success")
+				? this.showMessage(formCtrl, "", "success")
 				: this.showMessage(formCtrl, "Email is invalid", "error");
 		};
 
@@ -66,7 +67,7 @@ const validation = {
 	ckMatchingValue(formCtrl1, formCtrl2) {
 		formCtrl1.oninput = () => {
 			formCtrl1.value == formCtrl2.value
-				? this.showMessage(formCtrl1, null)
+				? this.showMessage(formCtrl1, "")
 				: this.showMessage(formCtrl1, `${this.getFieldName(formCtrl1)} is not matching !`, "error");
 		};
 
@@ -76,12 +77,12 @@ const validation = {
 	checkLength(formCtrl, minLength) {
 		formCtrl.oninput = () => {
 			formCtrl.value.length >= minLength
-				? this.showMessage(formCtrl, null, "success")
+				? this.showMessage(formCtrl, "", "success")
 				: this.showMessage(
-						formCtrl,
-						`${this.getFieldName(formCtrl)} must have ${minLength} characters`,
-						"error",
-				  );
+					formCtrl,
+					`${this.getFieldName(formCtrl)} must have ${minLength} characters`,
+					"error",
+				);
 		};
 
 		return formCtrl.value.length >= minLength;
@@ -100,7 +101,7 @@ const validation = {
 	isPhoneNumber(formCtrl) {
 		formCtrl.oninput = () => {
 			formCtrl.value == +formCtrl.value && formCtrl.value.length == 10
-				? this.showMessage(formCtrl, null, "success")
+				? this.showMessage(formCtrl, "", "success")
 				: this.showMessage(formCtrl, `${this.getFieldName(formCtrl)} is invalid`, "error");
 		};
 
@@ -113,12 +114,12 @@ const validation = {
 	isValidFile(formCtrl, allowedExtensions) {
 		const filePath = formCtrl.value;
 		allowedExtensions.test(filePath)
-			? this.showMessage(formCtrl, null, "success")
+			? this.showMessage(formCtrl, "", "success")
 			: this.showMessage(formCtrl, "File's extension is not allowed", "error");
 		// Allowing file type
 		formCtrl.onchange = () => {
 			allowedExtensions.test(filePath)
-				? this.showMessage(formCtrl, null, "success")
+				? this.showMessage(formCtrl, "", "success")
 				: this.showMessage(formCtrl, "File's extension is not allowed", "error");
 		};
 
