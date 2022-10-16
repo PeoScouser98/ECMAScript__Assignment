@@ -1,9 +1,13 @@
+import instance from "../api/axios.config";
+
 const Footer = {
-	render() {
-		return /* html */ `
-        <div class="navbar bg-base-100">
+    async render() {
+        const settings = await instance.get("/settings")
+
+        return /* html */ `
+        <div class="navbar bg-base-100 max-w-6xl mx-auto">
             <div class="flex-1">
-                <a href="/#/" class=" px-2 mx-2"><img src="../../assets/img/Fudo..png"/></a>
+                <a href="/#/" class=" px-2 mx-2"><img src="${settings.logo}" class="hover:cursor-pointer max-w-[160px] object-contain object-center"/></a>
             </div>
             <div class="flex-none">
             <ul class="nav-menu flex justify-center items-center gap-10 font-medium">
@@ -15,6 +19,6 @@ const Footer = {
             </div>
         </div>
         `;
-	},
+    },
 };
 export default Footer;
