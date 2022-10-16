@@ -23,7 +23,7 @@ module.exports = {
 			animation: {
 				fadeInOut: "fadeIn .3s linear, fadeOut .3s linear 1s forwards",
 				jumping: "jumping 1.2s linear infinite",
-				rotate: "rotate 1.2s linear infinite",
+				spin: "spin 1.2s ease infinite",
 			},
 			keyframes: {
 				fadeIn: {
@@ -33,13 +33,10 @@ module.exports = {
 				fadeOut: {
 					"100%": { transform: "translateY(-200%)", opacity: "0" },
 				},
-				jumping: {
-					"0%": { height: "10%" },
-					"50%": { height: "50%" },
-					"100%": { height: "10%;" },
-				},
-				rotate: {
-					"100%": { rotate: "360deg" },
+
+				spin: {
+					"0%": { transform: "rotate(0turn)" },
+					"100%": { transform: "rotate(1turn)" },
 				},
 			},
 		},

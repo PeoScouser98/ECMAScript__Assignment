@@ -9,8 +9,14 @@
 	}
 }
 @layer utilities {
+	.error-message {
+		@apply font-medium text-error;
+	}
 }
 @layer components {
+	.loader {
+		@apply pointer-events-none w-8 h-8 rounded-full border-[3px] border-transparent border-t-white animate-spin;
+	}
 	.invisible-scroll::-webkit-scrollbar {
 		display: none;
 	}

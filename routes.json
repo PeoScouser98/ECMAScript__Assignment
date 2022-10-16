@@ -1,0 +1,5 @@
+{
+	"/signin": "/signin",
+	"/register": "/register",
+	"/refresh-token/:id": "/refresh-token/:id"
+}

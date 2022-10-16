@@ -34,18 +34,19 @@
   "products": [
     {
       "id": 1,
-      "name": "Big and Juicy Wagyu Beef Cheeseburger",
-      "price": 30,
-      "stock": 100,
+      "name": "Hamburger",
+      "price": "30",
+      "stock": "100",
       "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
       "image": "https://drive.google.com/uc?export=view&id=1R1NwALC6GF5udx4i17iSV3PhwQd2Ksxg",
-      "categoryId": 1
+      "categoryId": 1,
+      "cate": "1"
     },
     {
       "id": 2,
       "name": "Fresh Lime Roasted Salmon",
       "price": 10,
-      "stock": 100,
+      "stock": 0,
       "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
       "image": "https://drive.google.com/uc?export=view&id=1vypgrg5DF1Y756VGxrroVvyF5-pEenBE",
       "categoryId": 5
@@ -67,69 +68,137 @@
       "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
       "image": "https://drive.google.com/uc?export=view&id=1fO3OS43GqsLvrMl20cHoFhjr1pxcw9ld",
       "categoryId": 2
-    },
-    {
-      "id": 5,
-      "name": "The Creamiest Creamy Chicken",
-      "price": 60,
-      "stock": 100,
-      "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-      "image": "https://drive.google.com/uc?export=view&id=1kkbuGJ0BzPu2No22D3_S6-ybgj7m9Cik",
-      "categoryId": 4
-    },
-    {
-      "id": 6,
-      "name": "Fruity Pancake with Orange & Blueberry",
-      "price": 15,
-      "stock": 100,
-      "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
-      "image": "https://drive.google.com/uc?export=view&id=1jzFAB_orPsMCWiLWmIjpfek4YWfEkr4L",
-      "categoryId": 6
-    },
-    {
-      "name": "Pizza chesse",
-      "price": "20",
-      "stock": "100",
-      "categoryId": "5",
-      "desc": "pizza",
-      "image": "https://cdn.filestackcontent.com/xAWlSl6SU2UEDmCAj26X",
-      "id": 7
-    },
-    {
-      "name": "Noodles",
-      "price": "20",
-      "stock": "100",
-      "categoryId": "1",
-      "desc": "Korean noddles",
-      "image": "https://cdn.filestackcontent.com/vFqIYqY5Qo2NcXwAoAXm",
-      "id": 8
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "username": "Quang Hiệp",
+      "phone": "0123123123",
+      "address": "Hai Phong",
+      "createdAt": "14/10/2022",
+      "orderItems": [
+        {
+          "qty": 1,
+          "id": 1,
+          "name": "Hamburger",
+          "price": "30",
+          "stock": "100",
+          "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+          "image": "https://drive.google.com/uc?export=view&id=1R1NwALC6GF5udx4i17iSV3PhwQd2Ksxg",
+          "categoryId": 1,
+          "cate": "1",
+          "total": 30
+        },
+        {
+          "qty": 1,
+          "id": 4,
+          "name": "Fresh and Healthy Mixed Mayonnaise ",
+          "price": 50,
+          "stock": 100,
+          "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+          "image": "https://drive.google.com/uc?export=view&id=1fO3OS43GqsLvrMl20cHoFhjr1pxcw9ld",
+          "categoryId": 2,
+          "total": 50
+        },
+        {
+          "qty": 1,
+          "id": 3,
+          "name": "The Best Easy One Pot Chicken and Rice",
+          "price": 20,
+          "stock": 100,
+          "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+          "image": "https://drive.google.com/uc?export=view&id=174rwrxpsazoCT-6-I-wZqFe215Zb4QpM",
+          "categoryId": 5,
+          "total": 20
+        }
+      ],
+      "statusId": 1,
+      "id": 1
+    },
+    {
+      "statusId": 0,
+      "username": "Hiệp",
+      "phone": "0336089988",
+      "address": "Hải Phòng",
+      "createdAt": "15/10/2022",
+      "orderItems": [
+        {
+          "qty": 1,
+          "id": 1,
+          "name": "Hamburger",
+          "price": "30",
+          "stock": "100",
+          "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+          "image": "https://drive.google.com/uc?export=view&id=1R1NwALC6GF5udx4i17iSV3PhwQd2Ksxg",
+          "categoryId": 1,
+          "cate": "1",
+          "total": 30
+        },
+        {
+          "qty": 1,
+          "id": 3,
+          "name": "The Best Easy One Pot Chicken and Rice",
+          "price": 20,
+          "stock": 100,
+          "desc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.",
+          "image": "https://drive.google.com/uc?export=view&id=174rwrxpsazoCT-6-I-wZqFe215Zb4QpM",
+          "categoryId": 5,
+          "total": 20
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "statuses": [
+    {
+      "id": 0,
+      "name": "Processing"
+    },
+    {
+      "id": 1,
+      "name": "Delivering"
+    },
+    {
+      "id": 2,
+      "name": "Complete"
+    },
+    {
+      "id": 3,
+      "name": "Refund"
+    }
+  ],
   "users": [
     {
       "email": "nguyenngochoang2121998@gmail.com",
       "password": "$2a$10$mTXMd5D3JhIih.QzcLDfOeucSdt5VLIl6iiHuIn.afPtWA6IOQtq2",
       "username": "Hoang",
+      "phone": "0789123654",
+      "address": "Hai Phong",
       "avatar": "../../assets/img/default-avatar.png",
       "role": 0,
       "id": 2
     },
     {
-      "email": "quanghiep03198@gmail.com",
-      "password": "$2a$10$/FfMj5BFNoer3NW0yTq7mecIqaHRSP1aFGEAA10nb5uUrWnpw.3eO",
-      "username": "Adminstrator",
-      "avatar": "../../assets/img/default-avatar.png",
-      "role": 1,
-      "id": 3
-    },
-    {
       "email": "haitnph19234@fpt.edu.vn",
       "password": "$2a$10$r0VAJ/Hc708.0Pg.ThMgv.KgBsOUoX/KPsn5n/f4AzbgMI4IHp0HW",
       "username": "Hải dớ",
-      "avatar": "../../assets/img/",
+      "phone": "0321123321",
+      "address": "Hai Phong",
+      "avatar": "../../assets/img/default-avatar.png",
       "role": 0,
       "id": 4
+    },
+    {
+      "email": "quanghiep03198@gmail.com",
+      "password": "$2a$10$e.WY2QbG/nf46xHVNXi.xO2xALFK42GeOLGElGHvEk.nYWBkcWw4e",
+      "username": "Admin",
+      "avatar": "../../assets/img/default-avatar.png",
+      "role": 1,
+      "id": 5
     }
-  ]
+  ],
+  "settings": {
+    "title": "Pizza Hut",
+    "logo": "https://firebasestorage.googleapis.com/v0/b/model-resource-363609.appspot.com/o/images%2Flogo-pizza%20(1).png?alt=media&token=a67ac83c-a7bc-4bc5-8f00-956ec05d05da"
+  }
 }

@@ -46,22 +46,29 @@ const SiginPage = {
 				if (!validation.areRequired(email, password)) return;
 				if (!validation.isEmail(email)) return;
 
-				const userData = await signin({
-					email: email.value,
-					password: password.value,
-				});
-				console.log(userData);
-				if (!userData) {
-					toast("error", "Failed to signup!");
-					return;
-				}
-				const { accessToken, user } = userData;
-				toast("success", "Signed up successfully!");
-				localStorage.setItem("auth", JSON.stringify(user));
-				localStorage.setItem("accessToken", accessToken);
+				try {
+					const userData = await signin({
+						email: email.value,
+						password: password.value,
 
-				if (user.role == 1) window.location.href = "/#/admin/product";
-				else window.location.href = "/#/";
+					});
+
+					if (!userData) {
+						toast("error", "Failed to sign in!");
+						return;
+					}
+					const { accessToken, user } = userData;
+					toast("success", "Sign in successfully!");
+					localStorage.setItem("auth", JSON.stringify({ id: user.id, email: user.email }));
+					localStorage.setItem("accessToken", accessToken);
+
+					console.log(user)
+					if (user.role == 1) window.location.href = "/#/admin/dashboard";
+					else window.location.href = "/#/";
+				} catch (error) {
+					console.log(error);
+				}
+
 			});
 	},
 };
