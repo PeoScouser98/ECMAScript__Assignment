@@ -69,6 +69,7 @@ export const getTotalAmount = (data) => {
 	const tempPayment = $("#temp-payment");
 	const discount = $("#discount");
 	const totalAmount = $("#total-amount");
+	const delivery = $("#delivery")
 	// const giftcode = $("#gift-code");
 	if ((tempPayment, discount, totalAmount)) {
 		tempPayment.dataset.cash = data.reduce((previousValue, currentValue) => {
@@ -78,7 +79,7 @@ export const getTotalAmount = (data) => {
 		// tổng tiền tạm tính
 		tempPayment.innerText = `$${formatNumber(tempPayment.dataset.cash)}`;
 		// tổng tiền thanh toán chưa bao gồm phí ship
-		totalAmount.dataset.cash = +tempPayment.dataset.cash - +discount.dataset.cash;
+		totalAmount.dataset.cash = +tempPayment.dataset.cash - +discount.dataset.cash + +delivery.dataset.cost;
 		totalAmount.innerText = `$${formatNumber(totalAmount.dataset.cash)}`;
 	}
 };
