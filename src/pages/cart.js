@@ -1,18 +1,19 @@
 import CartItem from "../components/cart-item";
+import CustomerInfoModal from "../components/customer-info-modal";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import Sidebar from "../components/sidebar";
 import { $, $$ } from "../utils/common";
-import { removeItem, renderCart, updateCartItem, changeQty } from "../utils/handle-cart";
+import { renderCart } from "../utils/handle-cart";
 
 const CartPage = {
-	render() {
+	async render() {
 		return /* template */ `
 			<div class="max-w-6xl mx-auto drawer">
 				<input type="checkbox" id="my-drawer-3" class="drawer-toggle"/>
 				<div class="drawer-content flex flex-col max-h-screen justify-between">
 					<!-- Header -->
-					${Header.render()}
+					${await Header.render()}
 
 					<main class="w-full h-full bg-zinc-100 flex justify-center items-center sm:py-0 lg:py-[50px]">
 						<div
@@ -65,22 +66,15 @@ const CartPage = {
 									</div>
 									<p class="text-[14px] bb-[30px]">This doesn't include shipping cost</p>
 								</div>
-								<form action="" id="cart-form" onsubmit="checkEmptyCart(event)">
-									<button
-										type="submit"
-										name="check-out"
-										id="check-out-submit"
-										class="btn btn-block btn-lg hover:btn-active hover:btn-primary normal-case"
-									>
-										Create Order
-									</button>
-								</form>
+
+								<label for="customer-modal-toggle" class="btn btn-block btn-lg hover:btn-active hover:btn-primary normal-case">Create Order</label>
 							</div>
 						</div>
 					</main>
-			${Footer.render()}
+			${await Footer.render()}
 		</div>
 		${Sidebar.render()}
+		${await CustomerInfoModal.render()}
 		</div>
 
 	`;
@@ -90,6 +84,9 @@ const CartPage = {
 		renderCart(items);
 		Header.handleEvent();
 		CartItem.handleEvents();
+		CustomerInfoModal.handleEvents()
+		// if(!auth)
+
 	},
 };
 export default CartPage;
